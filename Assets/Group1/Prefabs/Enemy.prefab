@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 2
-  _radiusSearchTarget: 4
+  _movementRadius: 5
 --- !u!61 &3258412893209462713
 BoxCollider2D:
   m_ObjectHideFlags: 0
