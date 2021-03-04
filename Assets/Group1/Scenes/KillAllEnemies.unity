@@ -312,7 +312,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pictureEndGame: {fileID: 1054253062}
-  _enemyGenerator: {fileID: 892783851}
 --- !u!1 &892783850
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +343,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _template: {fileID: 6577246030088673782, guid: e2a8c6a54415c1240aec5f2960e7c663,
     type: 3}
-  _numberEnemies: 4
+  _enemies: 4
+  _gameResult: {fileID: 534669906}
 --- !u!4 &892783852
 Transform:
   m_ObjectHideFlags: 0
@@ -576,8 +576,24 @@ PrefabInstance:
       objectReference: {fileID: 534669906}
     - target: {fileID: 1138325410617914342, guid: a53dcb3cb2004d246a194095b680b4bd,
         type: 3}
+      propertyPath: _speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138325410617914342, guid: a53dcb3cb2004d246a194095b680b4bd,
+        type: 3}
       propertyPath: _enemyGenerator
       value: 
       objectReference: {fileID: 892783851}
-    m_RemovedComponents: []
+    - target: {fileID: 1138325410617914342, guid: a53dcb3cb2004d246a194095b680b4bd,
+        type: 3}
+      propertyPath: _speedUpDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138325410617914342, guid: a53dcb3cb2004d246a194095b680b4bd,
+        type: 3}
+      propertyPath: _speedUpMultiplier
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1402004993707024559, guid: a53dcb3cb2004d246a194095b680b4bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a53dcb3cb2004d246a194095b680b4bd, type: 3}

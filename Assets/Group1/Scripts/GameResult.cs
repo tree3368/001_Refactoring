@@ -5,13 +5,9 @@ using UnityEngine;
 public class GameResult : MonoBehaviour
 {
     [SerializeField] private GameObject _pictureEndGame;
-    [SerializeField] private EnemyGenerator _enemyGenerator;
 
-    private void Update()
+    public void IncludePicture()
     {
-        if (_enemyGenerator.Enemies.Count == 0)
-        {
-            _pictureEndGame.SetActive(true);
-        }
+        _pictureEndGame.SetActive(true);
     }
 }
