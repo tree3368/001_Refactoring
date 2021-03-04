@@ -10,8 +10,6 @@ public class EnemyGenerator : MonoBehaviour
 
     private List<Enemy> _createdEnemies = new List<Enemy>();
 
-    public List<Enemy> CreatedEnemies => _createdEnemies;
-
     private void Start()
     {
         CreateEnemies();
