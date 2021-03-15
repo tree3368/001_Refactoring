@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyGenerator : MonoBehaviour
 {
     [SerializeField] private Enemy _template;
     [SerializeField] private int _enemies;
-    [SerializeField] private GameResult _gameResult;
 
     private List<Enemy> _createdEnemies = new List<Enemy>();
+
+    public event UnityAction AllEnemiesDead;
 
     private void Start()
     {
@@ -30,6 +32,6 @@ public class EnemyGenerator : MonoBehaviour
         enemy.Death -= OnDeath;
         _createdEnemies.Remove(enemy);
         if (_createdEnemies.Count == 0)
-            _gameResult.IncludePicture();
+            AllEnemiesDead?.Invoke();
     }
 }

@@ -8,8 +8,6 @@ public class Player : MonoBehaviour
     private const string _horizontalDirection = "Horizontal";
 
     [SerializeField] private float _speed;
-    [SerializeField] private float _speedUpMultiplier;
-    [SerializeField] private float _speedUpDuration;
 
     private void Update()
     {
@@ -18,15 +16,15 @@ public class Player : MonoBehaviour
         transform.Translate(moveDirection * _speed * Time.deltaTime);
     }
 
-    public void ActivateSpeedUp()
+    public void StartBoosting(float force, float duration)
     {
-        StartCoroutine(SpeedUpBonus());
+        StartCoroutine(Boosting(force, duration));
     }
 
-    private IEnumerator SpeedUpBonus()
+    private IEnumerator Boosting(float force, float duration)
     {
-        _speed *= _speedUpMultiplier;
-        yield return new WaitForSeconds(_speedUpDuration);
-        _speed /= _speedUpMultiplier;
+        _speed += force;
+        yield return new WaitForSeconds(duration);
+        _speed -= force;
     }
 }

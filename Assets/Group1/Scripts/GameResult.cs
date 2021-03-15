@@ -5,8 +5,19 @@ using UnityEngine;
 public class GameResult : MonoBehaviour
 {
     [SerializeField] private GameObject _pictureEndGame;
+    [SerializeField] private EnemyGenerator _enemyGenerator;
 
-    public void IncludePicture()
+    private void OnEnable()
+    {
+        _enemyGenerator.AllEnemiesDead += OnAllEnemiesDead;
+    }
+
+    private void OnDisable()
+    {
+        _enemyGenerator.AllEnemiesDead -= OnAllEnemiesDead;
+    }
+
+    private void OnAllEnemiesDead()
     {
         _pictureEndGame.SetActive(true);
     }
