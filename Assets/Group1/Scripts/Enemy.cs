@@ -6,8 +6,8 @@ using UnityEngine.Events;
 public class Enemy : Template
 {
     [SerializeField] private float _speed;
-    [SerializeField] private float _movementRadius;
-    [SerializeField] private float _collisionRange;
+    [SerializeField] private float _radiusMovement;
+    [SerializeField] private float _rangeCollision;
 
     private Vector3 _target;
 
@@ -27,7 +27,7 @@ public class Enemy : Template
 
     private void NextTarget()
     {
-        _target = Random.insideUnitCircle * _movementRadius;
+        _target = Random.insideUnitCircle * _radiusMovement;
     }
 
     public void Die()
@@ -38,7 +38,7 @@ public class Enemy : Template
 
     public override void HandleCollision(Player player)
     {
-        if (Vector3.Distance(transform.position, player.transform.position) < _collisionRange)
+        if (Vector3.Distance(transform.position, player.transform.position) < _rangeCollision)
             Die();
     }
 }
