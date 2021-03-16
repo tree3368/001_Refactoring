@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Template
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _movementRadius;
+    [SerializeField] private float _collisionRange;
 
     private Vector3 _target;
 
@@ -33,5 +34,11 @@ public class Enemy : MonoBehaviour
     {
         gameObject.SetActive(false);
         Death?.Invoke(this);
+    }
+
+    public override void HandleCollision(Player player)
+    {
+        if (Vector3.Distance(transform.position, player.transform.position) < _collisionRange)
+            Die();
     }
 }

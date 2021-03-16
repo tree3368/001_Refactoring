@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Booster : MonoBehaviour
+public class Booster : Template
 {
     [SerializeField] float _force;
     [SerializeField] float _duration;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override void HandleCollision(Player player)
     {
-        if(collision.gameObject.TryGetComponent<Player>(out Player player))
-        {
-            player.StartBoosting(_force, _duration);
-            gameObject.SetActive(false);
-        }
+        player.StartBoosting(_force, _duration);
+        gameObject.SetActive(false);
     }
 }
